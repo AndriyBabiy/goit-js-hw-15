@@ -23,21 +23,21 @@ const boxes = document.querySelector('#boxes');
 create.addEventListener('click', () => createBoxes(amount.value));
 destroy.addEventListener('click', () => destroyBoxes());
 
-// this is the create event that creates the outlined number of boxes and places them into the box div#boxes.
+// this is the function that creates the outlined number of boxes and places them into the box div#boxes.
 function createBoxes(int) {
   // create the markup of the box elements that sequentially increase in sise
   const markup = (int) => `
   <div style="height:${30 + (10 * int)}px; width:${30 + (10 * int)}px; background-color: ${getRandomHexColor()}">
   </div> `;
   
-  // iterate the creation of boxes for the amount of boxes that the user outlines
+  // iterate the creation of boxes for the amount of boxes that the user outlines.
   for (let i = 0; i < int; i++) {
     // boxes are added sequentially with the smallest box on top
     boxes.insertAdjacentHTML('beforeend', markup(i));
   }
 }
 
-// this is the handler function that occuers when the destroy button is clicked.
+// this is the function that occurs when the destroy button is clicked.
 function destroyBoxes() {
   // the elements inside the div div#boxes are removed and returned to the original empty state.
   boxes.innerHTML = ``;
